@@ -1,0 +1,99 @@
+@media only screen and (max-width: 600px) {
+  .top_contect a {
+    font-size: 11px;
+  }
+  .logo_icon img {
+    width: 80px !important;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .about-text {
+    font-size: 36px !important;
+    font-weight: bolder;
+  }
+
+  .crypto-heading {
+    font-size: 23px !important;
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  .afew {
+    margin-top: -40px;
+    font-size: 28px;
+  }
+  .about-us {
+    margin-top: 0%;
+  }
+
+  #image {
+    background-image: url("../image/girl-coin.jpg");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  /* .icon {
+    background: linear-gradient(to top, #053A7A 0%, #000fff 100%);
+    padding: 7%;
+    border-radius: 50%;
+    margin-bottom: 3%;
+  } */
+  .fa-icon {
+    color: #fff;
+    font-size: 20px;
+  }
+  .icon-heading {
+    font-size: 25px;
+  }
+  .divider {
+    background: linear-gradient(to top, #053A7A 0%, #000fff 100%);
+    width: 20%;
+  }
+  .icon-b {
+    background-color: transparent;
+    padding: 0% 0%;
+    width: 20%;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    /* border-radius: 50%; */
+    margin-bottom: 3%;
+  }
+  .text-icon-b {
+    text-align: center;
+  }
+  .fa-icon {
+    color: #fff;
+    font-size: 20px;
+  }
+  .small_icon {
+    /* width: 45px; */
+    /* border-radius: 50%; */
+    float: left;
+  }
+  .small-text h5,
+  .small-text p,
+  .small-text a {
+    /* float: right; */
+    /* justify-content: flex-end; */
+  }
+
+  .Consultancy {
+    padding-top: 0%;
+  }
+  .count {
+    width: 60% !important;
+    margin: auto;
+    margin-left: 28%;
+  }
+  .count-text {
+    font-size: 30px;
+  }
+  
+  .wepay {
+    font-size: 35px;
+  }
+  .testimony {
+    font-size: 30px;
+    text-align: center;
+  }
+}
