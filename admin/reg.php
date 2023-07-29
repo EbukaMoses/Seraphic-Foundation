@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <?php session_start(); ?>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,32 +26,19 @@
                     <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
                         <div class="card col-lg-4 mx-auto">
                             <div class="card-body px-5 py-5">
-                                <h3 class="card-title text-left mb-3">Register</h3>
-                                <form>
-
+                                <img src="../image/logo3.png" class="mb-4" width="80" alt="">
+                                <h3 class="card-title text-left mb-3">Enter Passkey</h3>
+                                <form action="functions/regcode.php" method="POST">
+                                    <?php include("function/message.php");?>
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control p_input">
+                                        <label>Code *</label>
+                                        <input type="text" class="form-control p_input" name="passcode">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control p_input">
+                                    <div class=" text-center">
+                                        <br>
+                                        <button type="submit" class="btn btn-primary btn-block enter-btn"
+                                            name="reg">Continue</button>
                                     </div>
-
-                                    <div class="text-center">
-                                        <button type="submit"
-                                            class="btn btn-primary btn-block enter-btn">Register</button>
-                                    </div>
-                                    <!-- <div class="d-flex">
-                    <button class="btn btn-facebook col mr-2">
-                      <i class="mdi mdi-facebook"></i> Facebook </button>
-                    <button class="btn btn-google col">
-                      <i class="mdi mdi-google-plus"></i> Google plus </button>
-                  </div> -->
-                                    <p class="sign-up text-center">Already have an Account?<a href="login.php"> Sign
-                                            In</a></p>
-                                    <!-- <p class="terms">By creating an account you are accepting our<a href="#"> Terms &
-                                            Conditions</a></p> -->
                                 </form>
                             </div>
                         </div>

@@ -125,18 +125,16 @@
                              </table>
                          </div>
                      </div>
-                     <ul class="pager">
+                     <ul class="pagination d-flex justify-content-center align-items-center">
                          <?php 
                      for($i = 1; $i <= $count; $i++){
 
                         if($i == $page){
-                            echo "<li><a class='btn btn-warning' href='partners.php?page={$i}'>{$i}</a></li>";
+                            echo "<li class='page-item active'><a class='page-link' href='partners.php?page={$i}'>{$i}</a></li>";
                             
                         }else{
-                            echo "<li><a class='btn' href='partners.php?page={$i}'>{$i}</a></li>";  
-                        }
-                         
-                        
+                            echo "<li class='page-item'><a class='page-link' href='partners.php?page={$i}'>{$i}</a></li>";  
+                        }                        
                      }
                      ?>
                      </ul>

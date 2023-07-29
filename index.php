@@ -1,5 +1,57 @@
-<?php include("header.php") ?>
+<?php 
+include("admin/db/db.php");
+include("header.php");
+?>
 <!-- -----------------------------HERO SECTION------------------ -->
+<?php
+
+// $ip = isset($_SERVER['REMOTE_ADDR']);
+// echo 'ip: ' . $ip;
+
+// echo var_export(unserialize(file_get_contents('http://www.geoplugin.net/php.gp?ip='.$_SERVER['REMOTE_ADDR'])));
+// echo "<script>alert(`{$id}`)</script>";
+  
+// Use JSON encoded string and converts
+// it into a PHP variable
+$ipdat = @json_decode(file_get_contents(
+    "http://www.geoplugin.net/json.gp?ip=" . $ip));
+   
+// echo 'Country Name: ' . $ipdat->geoplugin_countryName . "\n";
+// echo 'Country Code: ' . $ipdat->geoplugin_countryCode . "\n";
+// echo 'City Name: ' . $ipdat->geoplugin_city . "\n";
+// echo 'Continent Name: ' . $ipdat->geoplugin_continentName . "\n";
+// echo 'Continent Code: ' . $ipdat->geoplugin_continentCode . "\n";
+// echo 'Latitude: ' . $ipdat->geoplugin_latitude . "\n";
+// echo 'Longitude: ' . $ipdat->geoplugin_longitude . "\n";
+// echo 'Currency Symbol: ' . $ipdat->geoplugin_currencySymbol . "\n";
+// echo 'Currency Code: ' . $ipdat->geoplugin_currencyCode . "\n";
+// echo 'Timezone: ' . $ipdat->geoplugin_timezone . "\n";
+// echo 'ip: ' . $ipdat->geoplugin_request . "\n";
+
+$CountryName = $ipdat->geoplugin_countryName;
+$CountryCode = $ipdat->geoplugin_countryCode;
+$CityName = $ipdat->geoplugin_city;
+$ContinentName = $ipdat->geoplugin_continentName;
+$ContinentCode = $ipdat->geoplugin_continentCode;
+$Latitude = $ipdat->geoplugin_latitude;
+$Longitude = $ipdat->geoplugin_longitude;
+$CurrencyCode = $ipdat->geoplugin_currencyCode;
+$Timezone = $ipdat->geoplugin_timezone;
+$ip = $ipdat->geoplugin_request;
+
+$sel_query = "SELECT * FROM visitors WHERE ip = '{$ip}' AND country_name = '{$CountryName}'";
+$run_query = mysqli_query($connection, $sel_query);
+if(mysqli_num_rows($run_query) > 0){
+    
+}else{
+    $query = "INSERT INTO visitors (ip, country_name, country_code, city_name, continent_name, continent_code, latitude, longitude, currency_code, timezone) VALUES ('{$ip}','{$CountryName}','{$CountryCode}','{$CityName}','{$ContinentName}','{$ContinentCode}','{$Latitude}','{$Longitude}','{$CurrencyCode}','{$Timezone}')";
+    $run_query = mysqli_query($connection, $query);
+}
+
+
+
+   
+?>
 <section class="hero">
     <div class="container ">
         <div class="row ">

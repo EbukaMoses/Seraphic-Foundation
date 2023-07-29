@@ -35,8 +35,14 @@
                               <div class="col-9">
                                   <div class="d-flex align-items-center align-self-start">
                                       <h3 class="mb-0">Visitors</h3>
-
-                                      <p class="text-primary ml-2 mb-0 font-weight-medium">200</p>
+                                      <?php
+                                        $query = "SELECT * FROM visitors";
+                                        $run_query = mysqli_query($connection, $query);
+                                        $row_visit = mysqli_num_rows($run_query);
+                                    ?>
+                                      <p class="text-primary ml-2 mb-0 font-weight-medium">
+                                          <?=$row_visit?>
+                                      </p>
                                   </div>
                               </div>
                               <div class="col-3">
@@ -106,7 +112,19 @@
                               <div class="col-9">
                                   <div class="d-flex align-items-center align-self-start">
                                       <h3 class="mb-0">Inflow</h3>
-                                      <p class="text-success ml-2 mb-0 font-weight-medium">8Billion</p>
+                                      <?php
+                                            $query = "SELECT SUM(pay) as total FROM partners WHERE status ='active'";
+                                            $run_query = mysqli_query($connection, $query);
+                                            // $count_pay = mysqli_num_rows($run_query);
+                                            while($row = mysqli_fetch_assoc($run_query)){
+                                                $count_pay = $row['total'];
+                                        ?>
+
+                                      <p class="text-success ml-2 mb-0 font-weight-medium">
+                                          <?=number_format($count_pay)?>
+                                      </p>
+
+                                      <?php } ?>
                                   </div>
                               </div>
                               <div class="col-3">
@@ -158,14 +176,24 @@
                           <div class="table-responsive">
                               <table class="table">
                                   <tbody>
+                                      <?php 
+                                      $query = "SELECT country_name, COUNT(*) as code FROM visitors GROUP BY country_name";
+                                      $run_query = mysqli_query($connection, $query);
+                                      while($row = mysqli_fetch_assoc($run_query)){
+                                        $name = $row['country_name'];
+                                        $code = $row['code'];
+                                      ?>
                                       <tr>
                                           <td>
                                               <i class="flag-icon flag-icon-us"></i>
                                           </td>
-                                          <td>USA</td>
-                                          <td class="text-right"> 1500 </td>
+                                          <td><?=$name?></td>
+                                          <td class="text-right"><?=$code?></td>
                                           <td class="text-right font-weight-medium"> 56.35% </td>
                                       </tr>
+                                      <?php
+                                      }
+                                      ?>
                                       <tr>
                                           <td>
                                               <i class="flag-icon flag-icon-de"></i>
