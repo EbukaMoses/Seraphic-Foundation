@@ -21,7 +21,9 @@
                 <div class="contact-divider"></div>
                 <br>
                 <p>We’d love to hear from you! </p>
-                <form action="">
+                <?php include("admin/functions/message.php");?>
+
+                <form action="admin/functions/allcode.php" method="POST">
                     <div class="input-group mt-4">
                         <input type="text" class="form-control input" placeholder="Full Name" name="fullname">
                     </div>

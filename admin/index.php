@@ -115,7 +115,6 @@
                                       <?php
                                             $query = "SELECT SUM(pay) as total FROM partners WHERE status ='active'";
                                             $run_query = mysqli_query($connection, $query);
-                                            // $count_pay = mysqli_num_rows($run_query);
                                             while($row = mysqli_fetch_assoc($run_query)){
                                                 $count_pay = $row['total'];
                                         ?>

@@ -3,7 +3,30 @@ session_start();
     include "../db/db.php";
     include "helper.php";
 
+//sending message from website contact us page
+if(isset($_POST['sendmsg'])){
+    $fullname = validate_input_value(mysqli_real_escape_string($connection, $_POST['fullname']));
+    $email = validate_input_value(mysqli_real_escape_string($connection, $_POST['email']));
+    $phone = validate_input_value(mysqli_real_escape_string($connection, $_POST['phone']));
+    $msg = validate_input_value(mysqli_real_escape_string($connection, $_POST['message']));
 
+    if(empty($fullname) || empty($email) || empty($phone) || empty($msg)){
+        $_SESSION['error'] = "Fill the neccessary inputs!!!";
+        header("Location: ../../contact-us.php");
+        exit(0);
+    } 
+
+    $query = "INSERT INTO contactus_msg (fullname, email, phone, msg, msg_date) VALUES ('{$fullname}', '{$email}', '{$phone}', '{$msg}', NOW())";
+    $run_query = mysqli_query($connection, $query);
+
+    if(!$run_query){
+            die("QUERY FAILED ". mysqli_error($connection) . ' ' . mysqli_errno($connection));
+        }
+        $_SESSION['message'] = "Sent Successfully!!! We will Reach out to you Asap";
+        header("Location: ../../contact-us.php");
+        exit(0); 
+    
+}
 // Registering a New Volunteer 
 if(isset($_POST["vol_btn"])){
     $fullname = mysqli_real_escape_string($connection, $_POST['vol_name']);
@@ -62,7 +85,36 @@ if(isset($_POST["vol_btn"])){
         exit(0);    
 }
 
+//DActivate Partners form on the website
+if(isset($_GET['act'])){
+    $status = $_GET['act'];
 
+    $query = "UPDATE partner_form_activation SET activate = '{$status}'";
+    // $query = "INSERT INTO partner_form_activation (activate) VALUES ('{$status}')";
+    $run_query = mysqli_query($connection, $query);
+
+    if(!$run_query){
+            die("QUERY FAILED ". mysqli_error($connection) . ' ' . mysqli_errno($connection));
+        }
+        $_SESSION['message'] = "Partners Form Activated Successfully!!!";
+        header("Location: ../partners.php");
+        exit(0);    
+}
+//Deactivate Partners form on the website
+if(isset($_GET['deact'])){
+    $status = $_GET['deact'];
+
+    $query = "UPDATE partner_form_activation SET activate = '{$status}'";
+    $run_query = mysqli_query($connection, $query);
+
+    if(!$run_query){
+            die("QUERY FAILED ". mysqli_error($connection) . ' ' . mysqli_errno($connection));
+        }
+        $_SESSION['message'] = "Partners Form Deactivated Successfully!!!";
+        header("Location: ../partners.php");
+        exit(0);  
+    
+}
 
 //Registering A New Partner
 if(isset($_POST["partner_btn"])){

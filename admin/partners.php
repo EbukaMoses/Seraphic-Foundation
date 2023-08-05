@@ -35,7 +35,31 @@
                                      </div>
                                  </div>
                              </div>
-                             <a href="addpartner.php" class="btn btn-warning mr-2 mb-3 pt-2">Add a Partner</a>
+                             <a href="addpartner.php" class="btn btn-sm btn-warning mr-2 mb-3 pt-2">Add a Partner</a>
+
+                             <?php                             
+                                $query = "SELECT * FROM partner_form_activation";
+                                $run_query = mysqli_query($connection, $query);
+                                while($row = mysqli_fetch_assoc($run_query)){
+                                    $status = $row['activate'];
+                                }
+                                
+                                if($status == 'deactive'){
+                                ?>
+                             <a href="functions/allcode.php?act=active" class="btn btn-success mr-2 mb-3 pt-2">
+                                 Activate form
+                             </a>
+                             <?php
+                             }elseif($status == 'active'){
+                             ?>
+                             <a href="functions/allcode.php?deact=deactive"
+                                 class="btn btn-danger mr-2 mb-3 pt-2">Deactivate
+                                 form</a>
+                             <?php  
+                             }
+                             ?>
+
+
                          </div>
 
                          <hr>

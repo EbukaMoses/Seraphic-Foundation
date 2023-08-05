@@ -103,8 +103,8 @@
                                  </select>
                              </div>
                              <div class="form-group">
-                                 <label for="exampleTextarea1">Writeup</label>
-                                 <textarea class="form-control text-white" id="exampleTextarea1" rows="6"
+                                 <label for="summernote">Writeup</label>
+                                 <textarea class="form-control text-white" id="summernote" rows="6"
                                      placeholder="Detail Here" name="write_up"
                                      value="<?php if(isset($_POST["write_up"])) {echo $_POST["write_up"]; } ?>"></textarea>
                              </div>

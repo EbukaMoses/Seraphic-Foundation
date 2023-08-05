@@ -89,8 +89,8 @@
                                       id="exampleInputName1" placeholder="FOUNDER & MISSION BEARER">
                               </div>
                               <div class="form-group">
-                                  <label for="exampleTextarea1">About the Founder</label>
-                                  <textarea class="form-control text-white" name="found_writeup" id="exampleTextarea1"
+                                  <label for="summernote">About the Founder</label>
+                                  <textarea class="form-control text-white" name="found_writeup" id="summernote"
                                       rows="6" placeholder="Detail Here"></textarea>
                               </div>
                               <button type="submit" class="btn btn-primary mr-2" name="found_btn"><i

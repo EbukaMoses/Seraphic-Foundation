@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    session_start();
+     if(!isset($_SESSION['super_admin']) && ($_SESSION['super_role'] !== 'admin')){
+        $_SESSION['error'] = "Access Not Granted";
+        header("Location: reg.php");
+        exit(0);
+    }
+    ?>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -16,7 +24,8 @@
         <!-- Layout styles -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- End layout styles -->
-        <link rel="shortcut icon" href="assets/images/favicon.png" />
+        <link rel="icon" type="image" href="../image/logo1.png">
+
     </head>
     <body>
         <div class="container-scroller">
@@ -25,32 +34,29 @@
                     <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
                         <div class="card col-lg-4 mx-auto">
                             <div class="card-body px-5 py-5">
+                                <img src="../image/logo3.png" class="mb-4" width="80" alt="">
                                 <h3 class="card-title text-left mb-3">Register</h3>
-                                <form>
-
+                                <?php include("functions/message.php");?>
+                                <form action="functions/regcode.php" method="POST">
                                     <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control p_input">
+                                        <label>Username</label>
+                                        <input type="text" name="username" class="form-control p_input"
+                                            autocomplete="off">
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
-                                        <input type="password" class="form-control p_input">
+                                        <input type="password" name="password" autocomplete="off"
+                                            class="form-control p_input">
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit"
-                                            class="btn btn-primary btn-block enter-btn">Register</button>
+                                        <button type="submit" class="btn btn-primary btn-block enter-btn"
+                                            name="reg_admin">Register</button>
                                     </div>
-                                    <!-- <div class="d-flex">
-                    <button class="btn btn-facebook col mr-2">
-                      <i class="mdi mdi-facebook"></i> Facebook </button>
-                    <button class="btn btn-google col">
-                      <i class="mdi mdi-google-plus"></i> Google plus </button>
-                  </div> -->
-                                    <p class="sign-up text-center">Already have an Account?<a href="login.php"> Sign
-                                            In</a></p>
-                                    <!-- <p class="terms">By creating an account you are accepting our<a href="#"> Terms &
-                                            Conditions</a></p> -->
+
+                                    <p class="sign-up text-center">Already have an Account?<a href="login.php">
+                                            Sign In</a></p>
+
                                 </form>
                             </div>
                         </div>

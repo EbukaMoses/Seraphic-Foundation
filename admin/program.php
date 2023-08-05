@@ -70,8 +70,8 @@
                                  <input type="file" name="pro_img" class="form-control    ">
                              </div>
                              <div class="form-group">
-                                 <label for="exampleTextarea1">Textarea</label>
-                                 <textarea class="form-control text-white" id="exampleTextarea1" rows="6"
+                                 <label for="summernote">Textarea</label>
+                                 <textarea class="form-control text-white" id="summernote" rows="6"
                                      placeholder="Detail Here" name="pro_details"></textarea>
                              </div>
                              <button type="submit" class="btn btn-primary mr-2" name="pro_btn"><i

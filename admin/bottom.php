@@ -18,6 +18,29 @@
 <!-- plugins:js -->
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
+<script src="summernote/summernote-bs4.min.js"></script>
+<!-- Summernote -->
+<script src="assets/summernote/summernote-bs4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
+
+$(document).ready(function() {
+    // $("#summernote").summernote();
+
+    $("#summernote").summernote({
+        placeholder: 'Description',
+        tabsize: 2,
+        height: 200,
+        textcolor: 'white'
+    });
+    $('.dropdown-toggle').dropdown();
+});
+</script>
+
 <!-- Plugin js for this page -->
 <script src="assets/vendors/chart.js/Chart.min.js"></script>
 <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>

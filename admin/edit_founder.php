@@ -53,9 +53,9 @@
                                    <input type="file" name="new_img" class="form-control">
                                </div>
                                <div class="form-group">
-                                   <label for="exampleTextarea1">About the Founder</label>
-                                   <textarea class="form-control text-white" name="details" id="exampleTextarea1"
-                                       rows="6" placeholder="Detail Here"><?=$details?></textarea>
+                                   <label for="summernote">About the Founder</label>
+                                   <textarea class="form-control text-white" name="details" id="summernote" rows="10"
+                                       placeholder="Detail Here"><?=$details?></textarea>
                                </div>
                                <button type="submit" name="update_found" class="btn btn-primary mr-2"><i
                                        class="mdi mdi-file-check btn-icon-prepend"></i> Upload</button>

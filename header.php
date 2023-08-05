@@ -34,6 +34,7 @@
         <link rel="stylesheet" href="fontawesome-free-6.1.1/css/all.css">
         <link rel="icon" type="image" href="image/logo1.png">
 
+
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
             id="bootstrap-css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

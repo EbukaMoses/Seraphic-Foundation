@@ -17,22 +17,23 @@
         <!-- Layout styles -->
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- End layout styles -->
-        <link rel="shortcut icon" href="assets/images/favicon.png" />
+        <link rel="icon" type="image" href="../image/logo1.png">
+
     </head>
     <body>
         <div class="container-scroller">
             <div class="container-fluid page-body-wrapper full-page-wrapper">
                 <div class="row w-100 m-0">
                     <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
-                        <div class="card col-lg-4 mx-auto">
+                        <div class="card col-lg-4 mx-auto" id="card">
                             <div class="card-body px-5 py-5">
                                 <img src="../image/logo3.png" class="mb-4" width="80" alt="">
+                                <?php include("functions/message.php");?>
                                 <h3 class="card-title text-left mb-3">Enter Passkey</h3>
                                 <form action="functions/regcode.php" method="POST">
-                                    <?php include("function/message.php");?>
                                     <div class="form-group">
                                         <label>Code *</label>
-                                        <input type="text" class="form-control p_input" name="passcode">
+                                        <input type="password" class="form-control text-white p_input" name="passcode">
                                     </div>
                                     <div class=" text-center">
                                         <br>
