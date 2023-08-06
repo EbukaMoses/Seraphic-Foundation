@@ -18,32 +18,24 @@
                  <div class="card">
                      <div class="card-body">
                          <!-- <h4 class="card-title">Basic form elements</h4> -->
-                         <form class="forms-sample">
+                         <form class="forms-sample" action="functions/allcode.php" method="POST"
+                             enctype="multipart/form-data">
                              <div class="form-group">
                                  <label for="exampleInputName1">Hero Heading</label>
-                                 <input type="text" class="form-control" id="exampleInputName1"
+                                 <input type="text" class="form-control" name="hero_heading" id="exampleInputName1"
                                      placeholder="Hero Heading">
                              </div>
                              <div class="form-group">
                                  <label for="exampleInputName1">Hero Sub-Heading</label>
-                                 <input type="text" class="form-control" id="exampleInputName1"
+                                 <input type="text" class="form-control" name="hero_sub_heading" id="exampleInputName1"
                                      placeholder="Hero Sub-Heading">
                              </div>
 
                              <div class="form-group">
                                  <label>File upload</label>
-                                 <input type="file" name="img[]" class="form-control    ">
-                                 <!-- <div class="input-group col-xs-12">
-                                     <input type="text" class="form-control file-upload-info" disabled
-                                         placeholder="Upload Image">
-                                     <span class="input-group-append">
-                                         <button class="file-upload-browse btn btn-primary"
-                                             type="button">Upload</button>
-                                     </span>
-                                 </div> -->
+                                 <input type="file" name="hero_img" class="form-control    ">
                              </div>
-                             <button type="submit" class="btn btn-primary mr-2">Upload</button>
-                             <!-- <button class="btn btn-dark">Cancel</button> -->
+                             <button type="submit" class="btn btn-primary mr-2" name="hero_btn">Upload</button>
                          </form>
                      </div>
                  </div>

@@ -16,7 +16,7 @@ if(isset($_POST['sendmsg'])){
         exit(0);
     } 
 
-    $query = "INSERT INTO contactus_msg (fullname, email, phone, msg, msg_date) VALUES ('{$fullname}', '{$email}', '{$phone}', '{$msg}', NOW())";
+    $query = "INSERT INTO contactus_msg (fullname, email, phone, msg, status, msg_date) VALUES ('{$fullname}', '{$email}', '{$phone}', '{$msg}', 'unread', NOW())";
     $run_query = mysqli_query($connection, $query);
 
     if(!$run_query){
@@ -27,6 +27,51 @@ if(isset($_POST['sendmsg'])){
         exit(0); 
     
 }
+
+//Hero Section
+if(isset($_POST['hero_btn'])){
+    $heading = mysqli_real_escape_string($connection, $_POST['hero_heading']);
+    $sub_heading = mysqli_real_escape_string($connection, $_POST['hero_sub_heading']);
+    $img = mysqli_real_escape_string($connection, $_POST['hero_img']);
+
+    $pro_img = $_FILES['upload_profile']['name'];
+    $pro_img_temp = $_FILES['upload_profile']['tmp_name'];
+    
+    $image_extension = pathinfo($pro_img, PATHINFO_EXTENSION);
+       
+    $filename = $email .'.'. $image_extension;
+    $allowTypes = array('jpg','png','jpeg','gif');
+
+    if(empty($heading) || empty($sub_heading) || empty($img)){              
+          $_SESSION['error'] = "Fill the neccessary inputs!!!";
+        header("Location: ../hero.php");
+        exit(0);
+    }
+
+
+        if(in_array($image_extension, $allowTypes)){
+            
+            move_uploaded_file($pro_img_temp, '../uploads/profile/'.$filename);
+}
+
+// delete message
+if(isset($_GET['del_msg'])){
+    
+     $id = $_GET['del_msg'];
+    
+     $del_query = "DELETE FROM contactus_msg WHERE id = '$id' ";
+     $run_del_query = mysqli_query($connection, $del_query);
+
+     if(!$run_del_query){
+        die("QUERY FAILED ." .mysqli_error($connection));
+    }
+    $_SESSION['message'] = "Message Deleted Successfully";
+    header("Location: ../message.php");
+    exit(0);
+    
+}
+
+
 // Registering a New Volunteer 
 if(isset($_POST["vol_btn"])){
     $fullname = mysqli_real_escape_string($connection, $_POST['vol_name']);

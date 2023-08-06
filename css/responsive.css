@@ -5,8 +5,16 @@
   .logo_icon img {
     width: 80px !important;
   }
-  .hero h1 {
-    font-size: 42px;
+  .hero_text {
+    position: absolute;
+    font-size: 18px;
+    top: 100px;
+    left: 10%;
+    color: white;
+    /* padding-right: 5rem; */
+  }
+  .hero_text h1 {
+    font-size: 21px;
   }
   .about-text {
     font-size: 36px !important;
@@ -46,7 +54,7 @@
     font-size: 25px;
   }
   .divider {
-    background: linear-gradient(to top, #053A7A 0%, #000fff 100%);
+    background: linear-gradient(to top, #053a7a 0%, #000fff 100%);
     width: 20%;
   }
   .icon-b {
@@ -88,7 +96,7 @@
   .count-text {
     font-size: 30px;
   }
-  
+
   .wepay {
     font-size: 35px;
   }

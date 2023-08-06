@@ -1,4 +1,5 @@
 <?php
+    include("admin/db/db.php");
     include("header.php");
     $title = "Our Program";
 ?>
@@ -23,26 +24,36 @@
             </h1>
         </div>
         <div class="row">
+
+            <?php  
+                
+                $query = "SELECT * FROM program";
+                $run_query = mysqli_query($connection, $query);
+                if(mysqli_num_rows($run_query) > 0){
+                    while($row = mysqli_fetch_assoc($run_query)){
+                                        		
+                        $title = $row['pro_title'];
+                        $pic = $row['pro_pic'];
+                        $details = $row['pro_writeup'];
+                        ?>
+
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mt-5 mt-sm-2">
                 <div class="card d-flex align-items-center justify-items-center p-3">
                     <div class="card-img mb-4">
-                        <img src="image/rehab.jpg" class="img-fluid rounded" alt="Seraphic Foundation">
+                        <img src="admin/uploads/program/<?=$pic?>" class="img-fluid rounded" alt="Seraphic Foundation">
                     </div>
-                    <h4 class="font-weight-bold text-black text-center">Provide Rehabilitation Home/Hospital</h4>
+                    <h4 class="font-weight-bold text-black text-center"><?=$title?></h4>
                     <div class="wrap-title pr-4 pl-4">
-                        <p>⦿→ In many majory cities in Nigeria, homeless people with mental illness suffer a severe form
-                            of poverty, often being without shelter, food, care and clothing most times causing nuisance
-                            or chaos as they roam the streets. </p>
-                        <p>we will build rehabilitation homes/hospital for the mentally deranged amongst us where
-                            they will be taking care of them till they recovers and reunited with their families.</p>
-                        <p>This will also provide sanity in our societies.</p>
-                        <p>The rehabilitation homes/hospitals will be in every state of the federation starting from the
-                            five(5) eastern states; Anambra, Enugu, imo, Abia and Ebonyi State.</p>
+                        <p>⦿→ <?=$details?>.</p>
                     </div>
                     <a href="donate.php" class="btn btn_ mt-3 mb-2">Donate Now</a>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mt-5 mt-sm-2">
+            <?php
+                    }
+                }
+            ?>
+            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mt-5 mt-sm-2">
                 <div class="card d-flex align-items-center justify-items-center p-3">
                     <div class="card-img mb-4">
                         <img src="image/cloth&food.jpg" class="img-fluid rounded" alt="Seraphic Foundation">
@@ -128,7 +139,7 @@
                     </div>
                     <a href="donate.php" class="btn btn_ mt-3 mb-2">Donate Now</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -52,7 +52,7 @@ if(mysqli_num_rows($run_query) > 0){
 
    
 ?>
-<section class="hero">
+<!-- <section class="hero">
     <div class="container ">
         <div class="row ">
             <div class="col-md-8 col-sm-9 col-xs-12">
@@ -71,7 +71,22 @@ if(mysqli_num_rows($run_query) > 0){
             </div>
         </div>
     </div>
-</section>
+</section> -->
+
+<div class="container-fluid p-0">
+    <!-- background image -->
+    <img class="hero" src="image/13.jpg">
+
+    <!-- title and tag line with button -->
+    <div class="hero_text">
+        <h1 class="text-white font-weight-bold">
+            Donate For The Poor<br> Children In Their Need.
+        </h1>
+        <h5 class="text-white font-weight-bold">Save the children by helps girls and boys living in
+            poverty in Nigeria. Donate today to provide healthcare,
+            education and nutrition to a child in their need.</h5>
+    </div>
+</div>
 
 <!-- -------------------------------ABOUT US SECTION------------------- -->
 <div class="container-fluid pr-5 pl-5">

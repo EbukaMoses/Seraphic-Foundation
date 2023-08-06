@@ -27,7 +27,7 @@
         <?php
                 $query = "SELECT * FROM account";
                 $run_query = mysqli_query($connection, $query);
-                if(mysqli_num_rows($run_query) < 0){
+                if(mysqli_num_rows($run_query) > 0){
                     while($row = mysqli_fetch_assoc($run_query)){
                         								
                         $bank = $row['bank_name'];
@@ -38,7 +38,7 @@
                         ?>
 
         <div class="col-md-6">
-            <div class="team_card p-4">
+            <div class="team_card p-4" style="background: #f5f5f5;">
                 <h5 class="account_details"><strong class="text-success">Bank Name: </strong><?= ucwords($bank)?></h5>
                 <h5 class="account_details"><strong class="text-success">Account Name: </strong><?=ucwords($name)?></h5>
                 <h5 class="account_details"><strong class="text-success">Account Number: </strong><?=ucwords($number)?>

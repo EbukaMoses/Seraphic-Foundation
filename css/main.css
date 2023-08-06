@@ -404,23 +404,33 @@ nav {
   /* margin-top: -5px; */
   margin-left: -17px;
 }
-
+/* blurring the image */
 .hero {
-  /* background-image: url(../image/hero.jpg); */
-  background-image: url("../image/13.jpg"),
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
   background-blend-mode: overlay;
-  width: auto;
-  height: 90vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.hero h1 {
-  font-size: 62px;
+  width: 100%;
+  height: 95vh;
+  /* filter: contrast(70%);
+  -webkit-filter: contrast(70%); */
 }
 .hero_text {
-  padding-top: 12rem;
+  position: absolute;
+  font-size: 18px;
+  top: 240px;
+  left: 10%;
+  color: white;
+  padding-right: 35rem;
 }
+.hero_text h1 {
+  font-size: 52px;
+  text-shadow: 3px 3px 2px black;
+}
+
+.hero_text h5 {
+  font-size: 21px;
+  text-shadow: 2px 2px 2px black;
+}
+
 .cardz {
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%);
   z-index: 1010;

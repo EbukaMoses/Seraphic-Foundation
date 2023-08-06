@@ -5,6 +5,8 @@
   <!-- partial -->
   <div class="main-panel">
       <div class="content-wrapper">
+          <?php include("functions/message.php");?>
+
           <!-- <div class="row">
               <div class="col-12 grid-margin stretch-card">
                 <div class="card corona-gradient-card">
@@ -176,7 +178,7 @@
                               <table class="table">
                                   <tbody>
                                       <?php 
-                                      $query = "SELECT country_name, COUNT(*) as code FROM visitors GROUP BY country_name";
+                                      $query = "SELECT country_name, COUNT(*) as code FROM visitors GROUP BY country_name LIMIT 7";
                                       $run_query = mysqli_query($connection, $query);
                                       while($row = mysqli_fetch_assoc($run_query)){
                                         $name = $row['country_name'];
@@ -193,46 +195,6 @@
                                       <?php
                                       }
                                       ?>
-                                      <tr>
-                                          <td>
-                                              <i class="flag-icon flag-icon-de"></i>
-                                          </td>
-                                          <td>Germany</td>
-                                          <td class="text-right"> 800 </td>
-                                          <td class="text-right font-weight-medium"> 33.25% </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <i class="flag-icon flag-icon-au"></i>
-                                          </td>
-                                          <td>Australia</td>
-                                          <td class="text-right"> 760 </td>
-                                          <td class="text-right font-weight-medium"> 15.45% </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <i class="flag-icon flag-icon-gb"></i>
-                                          </td>
-                                          <td>United Kingdom</td>
-                                          <td class="text-right"> 450 </td>
-                                          <td class="text-right font-weight-medium"> 25.00% </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <i class="flag-icon flag-icon-ro"></i>
-                                          </td>
-                                          <td>Romania</td>
-                                          <td class="text-right"> 620 </td>
-                                          <td class="text-right font-weight-medium"> 10.25% </td>
-                                      </tr>
-                                      <tr>
-                                          <td>
-                                              <i class="flag-icon flag-icon-br"></i>
-                                          </td>
-                                          <td>Brasil</td>
-                                          <td class="text-right"> 230 </td>
-                                          <td class="text-right font-weight-medium"> 75.00% </td>
-                                      </tr>
                                   </tbody>
                               </table>
                           </div>
