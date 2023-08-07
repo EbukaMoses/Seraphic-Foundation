@@ -13,6 +13,8 @@
                  </ol>
              </nav>
          </div>
+         <?php include("functions/message.php");?>
+
          <div class="row">
              <div class="col-12 grid-margin stretch-card">
                  <div class="card">
@@ -22,13 +24,13 @@
                              enctype="multipart/form-data">
                              <div class="form-group">
                                  <label for="exampleInputName1">Hero Heading</label>
-                                 <input type="text" class="form-control" name="hero_heading" id="exampleInputName1"
-                                     placeholder="Hero Heading">
+                                 <input type="text" class="form-control text-white" name="hero_heading"
+                                     id="exampleInputName1" placeholder="Hero Heading">
                              </div>
                              <div class="form-group">
                                  <label for="exampleInputName1">Hero Sub-Heading</label>
-                                 <input type="text" class="form-control" name="hero_sub_heading" id="exampleInputName1"
-                                     placeholder="Hero Sub-Heading">
+                                 <input type="text" class="form-control text-white" name="hero_sub_heading"
+                                     id="exampleInputName1" placeholder="Hero Sub-Heading">
                              </div>
 
                              <div class="form-group">

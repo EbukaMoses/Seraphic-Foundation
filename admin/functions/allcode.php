@@ -32,26 +32,43 @@ if(isset($_POST['sendmsg'])){
 if(isset($_POST['hero_btn'])){
     $heading = mysqli_real_escape_string($connection, $_POST['hero_heading']);
     $sub_heading = mysqli_real_escape_string($connection, $_POST['hero_sub_heading']);
-    $img = mysqli_real_escape_string($connection, $_POST['hero_img']);
 
-    $pro_img = $_FILES['upload_profile']['name'];
-    $pro_img_temp = $_FILES['upload_profile']['tmp_name'];
+    $img = $_FILES['hero_img']['name'];
+    $img_temp = $_FILES['hero_img']['tmp_name'];
     
-    $image_extension = pathinfo($pro_img, PATHINFO_EXTENSION);
-       
-    $filename = $email .'.'. $image_extension;
-    $allowTypes = array('jpg','png','jpeg','gif');
+    $image_extension = pathinfo($img, PATHINFO_EXTENSION);
 
+    $filename = preg_replace('/\s+/', '', (strtolower($heading))) .'.'. $image_extension;
+    $allowTypes = array('jpg','png','jpeg','gif', 'JPG', 'JPEG', 'PNG');  
+       
     if(empty($heading) || empty($sub_heading) || empty($img)){              
           $_SESSION['error'] = "Fill the neccessary inputs!!!";
         header("Location: ../hero.php");
         exit(0);
     }
 
-
         if(in_array($image_extension, $allowTypes)){
             
-            move_uploaded_file($pro_img_temp, '../uploads/profile/'.$filename);
+            move_uploaded_file($img_temp, '../uploads/hero/'.$filename);
+            
+            $pro_query = "INSERT INTO hero (title, sub_title, img, status, posted_date) VALUES ('{$heading}', '${sub_heading}', '{$filename}', 'inactive', NOW())";
+            $run_pro_query = mysqli_query($connection, $pro_query);
+
+            if(!$run_pro_query){
+                die("QUERY FAILED ." .mysqli_error($connection));
+            }
+            
+            $_SESSION['message'] = "Image Added Successfully";
+            header("Location: ../hero.php");
+            exit(0);
+
+        }else{
+            
+            $_SESSION['error'] = "Sorry, only JPG, JPEG & PNG files are allowed to upload!!!";
+            header("Location: ../hero.php");
+            exit(0);
+            
+        }
 }
 
 // delete message
