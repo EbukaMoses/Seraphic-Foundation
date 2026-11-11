@@ -65,6 +65,8 @@ session_start();
                         <button type="submit" name="vol_btn" class="text-white bg-color btn w-100"><i
                                 class="fa-solid fa-handshake"></i>&nbsp;Submit</button>
                     </div>
+                    <!-- remove this p tag below -->
+                    <p>--Please ensure your inputs are filled</p>
                 </form>
             </div>
         </div>
